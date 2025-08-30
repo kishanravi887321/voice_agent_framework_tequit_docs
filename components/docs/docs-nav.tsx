@@ -21,21 +21,34 @@ export default function DocsNav() {
   return (
     <nav
       aria-label="Docs navigation"
-      className="sticky top-20 hidden h-[calc(100svh-5rem)] w-64 shrink-0 overflow-auto rounded-lg border border-gray-200 bg-white p-4 md:block"
+      className="px-6 py-8"
     >
-      <div className="mb-2 text-xs font-semibold uppercase tracking-wide text-gray-500">Voice Agent SDK</div>
+      <div className="mb-6">
+        <h2 className="text-lg font-semibold text-foreground mb-2">Voice Agent SDK</h2>
+        <p className="text-sm text-muted-foreground">Complete documentation</p>
+      </div>
+      
       <ul className="space-y-1">
         {items.map((item) => (
           <li key={item.href}>
             <Link
               href={`${pathname}${item.href}`}
-              className="block rounded-md px-2 py-1 text-sm text-gray-700 hover:bg-gray-50 hover:text-gray-900"
+              className="flex items-center rounded-lg px-4 py-3 text-sm text-muted-foreground transition-all duration-200 hover:bg-accent hover:text-accent-foreground group"
             >
+              <span className="w-1.5 h-1.5 rounded-full bg-muted-foreground group-hover:bg-accent-foreground mr-3 transition-colors"></span>
               {item.label}
             </Link>
           </li>
         ))}
       </ul>
+      
+      <div className="mt-8 pt-6 border-t">
+        <div className="rounded-lg bg-muted/50 p-4">
+          <p className="text-xs text-muted-foreground">
+            Need help? Check our troubleshooting section or contact support.
+          </p>
+        </div>
+      </div>
     </nav>
   )
 }
